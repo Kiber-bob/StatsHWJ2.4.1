@@ -12,7 +12,7 @@ public class StatsService {
 
     public long calculateAverageSum(long[] purchases) {
         long averageSum;
-        averageSum = calculateSum(purchases) / 12;
+        averageSum = calculateSum(purchases) / purchases.length;
         return averageSum;
     }
 
@@ -20,9 +20,9 @@ public class StatsService {
     public int calculateFindMax(long[] purchases) {
         int maxMonth = 0;
         int month = 0;
-        for (long sale : purchases) {
+        for (long purchase : purchases) {
 
-            if (sale >= purchases[maxMonth]) {
+            if (purchase >= purchases[maxMonth]) {
                 maxMonth = month;
             }
             month = month + 1;
@@ -45,9 +45,9 @@ public class StatsService {
 
 
     public long calculateAboveAverageSales(long[] purchases, long average) {
-        int countMonth = 0;
+        int countMonth = 0 ;
         for (long purchase : purchases) {
-            if (purchase > average)
+            if (purchase > calculateAverageSum(purchases))
                 countMonth++;
         }
         return countMonth;
@@ -56,7 +56,7 @@ public class StatsService {
     public long calculateBelowAverageSales(long[] purchases, long average) {
         int countMonth = 0;
         for (long purchase : purchases) {
-            if (purchase < average)
+            if (purchase < calculateAverageSum(purchases))
                 countMonth++;
         }
         return countMonth;
