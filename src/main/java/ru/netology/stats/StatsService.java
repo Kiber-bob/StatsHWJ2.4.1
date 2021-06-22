@@ -44,19 +44,19 @@ public class StatsService {
     }
 
 
-    public long calculateAboveAverageSales(long[] purchases, long average) {
+    public long calculateAboveAverageSales(long[] purchases) {
         int countMonth = 0 ;
         for (long purchase : purchases) {
-            if (purchase > average)
+            if (purchase >calculateAverageSum(purchases));
                 countMonth++;
         }
         return countMonth;
     }
 
-    public long calculateBelowAverageSales(long[] purchases, long average) {
+    public long calculateBelowAverageSales(long[] purchases) {
         int countMonth = 0;
         for (long purchase : purchases) {
-            if (purchase < average)
+            if (purchase < calculateAverageSum(purchases))
                 countMonth++;
         }
         return countMonth;
