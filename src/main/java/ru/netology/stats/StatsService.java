@@ -1,28 +1,28 @@
 package ru.netology.stats;
 
 public class StatsService {
-    public long calculateSum(long[] purchases) {
+    public long calculateSum(long[] sales) {
         long sum = 0;
-        for (long purchase : purchases) {
-            sum += purchase;
+        for (long sale : sales) {
+            sum += sale;
         }
         return sum;
     }
 
 
-    public long calculateAverageSum(long[] purchases) {
+    public long calculateAverageSum(long[] sales) {
         long averageSum;
-        averageSum = calculateSum(purchases) / purchases.length;
+        averageSum = calculateSum(sales) / sales.length;
         return averageSum;
     }
 
 
-    public int calculateFindMax(long[] purchases) {
+    public long calculateFindMax(long[] sales) {
         int maxMonth = 0;
         int month = 0;
-        for (long purchase : purchases) {
+        for (long sale : sales) {
 
-            if (purchase >= purchases[maxMonth]) {
+            if (sale >= sales[maxMonth]) {
                 maxMonth = month;
             }
             month = month + 1;
@@ -30,12 +30,12 @@ public class StatsService {
         return maxMonth + 1;
     }
 
-    public int calculateFindMin(long[] purchases) {
+    public int calculateFindMin(long[] sales) {
         int minMonth = 0;
         int month = 0;
-        for (long sale : purchases) {
+        for (long sale : sales) {
 
-            if (sale <= purchases[minMonth]) {
+            if (sale <= sales[minMonth]) {
                 minMonth = month;
             }
             month = month + 1;
@@ -44,19 +44,19 @@ public class StatsService {
     }
 
 
-    public long calculateAboveAverageSales(long[] purchases) {
-        int countMonth = 0 ;
-        for (long purchase : purchases) {
-            if (purchase >calculateAverageSum(purchases));
+    public long calculateAboveAverageSales(long[] sales) {
+        int countMonth = 0;
+        for (long sale : sales) {
+            if (sale > calculateAverageSum(sales))
                 countMonth++;
         }
         return countMonth;
     }
 
-    public long calculateBelowAverageSales(long[] purchases) {
+    public long calculateBelowAverageSales(long[] sales) {
         int countMonth = 0;
-        for (long purchase : purchases) {
-            if (purchase < calculateAverageSum(purchases))
+        for (long sale : sales) {
+            if (sale < calculateAverageSum(sales))
                 countMonth++;
         }
         return countMonth;
